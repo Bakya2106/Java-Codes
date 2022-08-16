@@ -7,7 +7,7 @@ public class JavaBasics {
 			//System.out.println("Your first argument is: "+args[0]);  //will lead to error
 		
 			  
-		//primitive data types
+		//these are primitive data types
 		int num=5 ;
 		num=10;
 		long l=500000000l;
