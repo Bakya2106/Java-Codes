@@ -1,0 +1,59 @@
+package HackerRank;
+
+import java.util.Scanner;
+
+public class anagrams {
+
+	static boolean isAnagram(String a, String b) {
+
+		String a1=a.toLowerCase();
+		String b1=b.toLowerCase();
+
+		Boolean op=false;
+		char[] ch1=a1.toCharArray();
+		char[] ch2=b1.toCharArray();
+		if(a.length()==b.length()) 
+		{
+			for(int x=0;x<ch1.length-1;x++) {
+				for(int y=x+1;y<ch1.length;y++) {
+					if(ch1[x]>(ch1[y])) {
+						char temp=ch1[x];
+						ch1[x]=ch1[y];
+						ch1[y]=temp;
+					}
+				}
+			}
+
+			for(int x=0;x<ch2.length-1;x++) {
+				for(int y=x+1;y<ch2.length;y++) {
+					if(ch2[x]>(ch2[y])) {
+						char temp=ch2[x];
+						ch2[x]=ch2[y];
+						ch2[y]=temp;
+					}
+				}
+			}
+
+			int num=0;
+			for(int i=0;i<a.length();i++) {
+				if(ch1[i]!=ch2[i]) {
+					num++;
+				}
+			}
+			if(num==0) op=true;
+			else op=false;
+		}
+		return op;
+	}
+
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+		String a = scan.next();
+		String b = scan.next();
+		scan.close();
+		boolean ret = isAnagram(a, b);
+		System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+	}
+
+}
